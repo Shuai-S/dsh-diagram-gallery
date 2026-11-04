@@ -1,0 +1,8 @@
+{
+  "upstream": "https://github.com/tt-a1i/archify",
+  "version": "3.2",
+  "channel": "stable",
+  "channelMeta": "https://archify.si/skill-updates/archify/stable.json",
+  "installedVia": "npx skills add https://archify.si --copy (official llms.txt flow)",
+  "fetchedAt": "2026-11-04T08:48:59.259Z"
+}

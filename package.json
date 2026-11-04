@@ -1,0 +1,41 @@
+{
+  "name": "dsh-diagram-gallery",
+  "version": "0.2.0",
+  "description": "Project diagram gallery for DeepSeek Harness: conversation-view tab that aggregates and previews project diagrams, with a bundled Archify skill for validated diagram generation.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client/client.js",
+    "./package.json": "./package.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "lib",
+    "client",
+    "skills",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "dsh-plugin",
+    "diagram",
+    "architecture",
+    "mermaid",
+    "gallery"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  }
+}
