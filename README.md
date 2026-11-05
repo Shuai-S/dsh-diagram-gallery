@@ -2,7 +2,7 @@
 
 DeepSeek Harness 插件:在会话顶部视图栏(对话 / 轨迹 / …)增加一个「**图示**」标签页,聚合并在线预览项目里的全部图示;**自带 Archify skill(v0.2.0 起)**,安装即含"生成 → 聚合 → 预览"完整闭环,无需另行安装任何 skill。
 
-## 功能(P0)
+## 功能
 
 - **工作区图示聚合**:扫描所有注册工作区的 `.archify/<run>/*.html`(archify 交付物)与 `docs/diagrams/**`、`diagrams/**`、`docs/**` 下的 `.mmd` / `.mermaid`
 - **会话内 Mermaid 聚合**:只读扫描当前会话的代码卡片,列出会话中出现过的 mermaid 图(不改动会话 DOM)
@@ -12,7 +12,7 @@ DeepSeek Harness 插件:在会话顶部视图栏(对话 / 轨迹 / …)增加一
 
 ```bash
 # web profile(CLI 可管理)
-dsh plugin --profile web add link:/Users/zs/MyCode/dsh-diagram-gallery
+dsh plugin --profile web add link:<本仓库本地路径>
 
 # desktop profile:桌面 App 独占管理,请在 App 插件页从本地路径安装,重启生效
 ```
@@ -47,7 +47,7 @@ dsh plugin --profile web add link:/Users/zs/MyCode/dsh-diagram-gallery
 - iframe `sandbox="allow-scripts allow-popups"`(无 same-origin),HTML 无法读取 gallery API 之外的宿主数据
 - 会话扫描为只读,不修改会话 DOM
 
-## 已知边界(P0)
+## 已知边界
 
 - 端口固定 3988,被占用时服务启动失败并在 host 日志提示(可用 `DIAGRAM_GALLERY_PORT` 覆盖)
 - 会话 mermaid 列表在进入 tab 时扫描一次,新图产生后需点「刷新」
