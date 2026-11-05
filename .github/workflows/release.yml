@@ -1,0 +1,54 @@
+name: Release
+
+# Tag-driven release: push tag v* -> verify tag/version match -> pack check ->
+# GitHub Release (tgz) + npm publish. Requires NPM_TOKEN secret (automation
+# token with publish rights for this package).
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Verify tag matches package version
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          PKG="$(node -p "require('./package.json').version")"
+          if [ "$TAG" != "$PKG" ]; then
+            echo "::error::tag v$TAG does not match package.json version $PKG"
+            exit 1
+          fi
+          echo "PKG=$PKG" >> "$GITHUB_ENV"
+
+      - name: Pack check (files manifest)
+        run: npm pack --dry-run
+
+      - name: Pack tarball
+        run: npm pack
+        env:
+          NODE_ENV: production
+
+      - name: Create GitHub Release with tarball
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "dsh-diagram-gallery ${PKG}" \
+            --generate-notes \
+            dsh-diagram-gallery-${PKG}.tgz
+
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
