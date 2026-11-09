@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Project diagram gallery for DeepSeek Harness: conversation-view tab that aggregates and previews project diagrams, with a bundled Archify skill for validated diagram generation.",
   "license": "MIT",
+  "icon": "./icon.svg",
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
@@ -15,6 +16,8 @@
     "lib",
     "client",
     "skills",
+    "locale",
+    "docs",
     "icon.svg",
     "cordis.patch.yml",
     "README.md"

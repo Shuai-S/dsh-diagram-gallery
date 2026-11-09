@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Diagram Gallery",
+    "description": "Aggregate project diagrams into a Diagrams tab over the conversation: .archify previews in a sandboxed iframe, mermaid with one-click copy. The bundled Archify skill generates from a slash command, a button, or plain language. Install into the web profile first; desktop installs from the App's plugin page.",
+    "detail": "docs/DETAIL.md"
+  }
+}

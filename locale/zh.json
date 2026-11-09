@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "图示图库",
+    "description": "把项目里的全部图示聚合成会话顶部的「图示」标签页，点击即在线预览：.archify 交付物以沙箱 iframe 直接交互，mermaid 源码可查看并一键复制。内置 Archify skill，/diagram 斜杠命令、tab 生成按钮或自然语言都能触发生成。使用前需将本插件安装进 web profile（桌面 profile 由 App 插件页安装，重启生效）。",
+    "detail": "docs/DETAIL.zh.md"
+  }
+}
